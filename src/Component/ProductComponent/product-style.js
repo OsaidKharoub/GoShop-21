@@ -63,10 +63,10 @@ line-height: 40px;
 position: absolute;
 top: 0;
 transition: all .2s linear;
-font-size: 12px;
+font-size: 11px;
 `
 export const Cart = styled.div`
-width: 120px;
+width: 90px;
 background-color: rgb(60 173 105);
 color: #fff;
 border-radius: 5px;

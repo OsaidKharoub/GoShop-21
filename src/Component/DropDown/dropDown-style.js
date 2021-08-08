@@ -33,14 +33,14 @@ overflow: scroll;
 export const Button = styled.button`
 background-color: #fff;
 color: rgb(60 173 105);
-width: 120px;
+width: 90px;
 padding: 8px 0;
 cursor: pointer;
-border: 4px solid rgb(60 173 105);
+border: 2px solid rgb(60 173 105);
 outline: none;
 margin: auto;
 border-radius:5px;
-font-size: 12px;
+font-size: 10px;
 transition: all .2s linear;
  &:hover{
     letter-spacing: 2px;
