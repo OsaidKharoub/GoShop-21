@@ -1,0 +1,36 @@
+import React ,{useEffect, lazy, Suspense} from 'react';
+import {withRouter} from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import {FetchCollectionsStartAsync} from '../../Redux/Shop/shop-action';
+import {connect} from 'react-redux';
+import Spiner from '../Spiner/spiner-component';
+
+const ColleactionsOverviewContainer = lazy ( () => import('./CollactionOverView-container'));
+const CollectionPageContainer = lazy(() => import('../Collaction/collecation-container'));
+
+
+const  Shopping = ({FetchCollectionsStartAsync, match}) => {
+ 
+   useEffect( () =>{
+   
+    FetchCollectionsStartAsync();
+    },[FetchCollectionsStartAsync])
+    
+        console.log("match", match);
+        return(
+            <div className ="shop-page"> 
+                <Suspense fallback={<Spiner/>}>
+                <Route exact path={`${match.path}`} component={ColleactionsOverviewContainer}   />
+                <Route path={`${match.path}/:collectionId`}  component={CollectionPageContainer}  />
+                </Suspense>
+            </div>
+        )
+    }
+  
+
+  const mapDispatchToProps =  dispatch  =>({
+    FetchCollectionsStartAsync: () => dispatch(FetchCollectionsStartAsync())
+  })
+
+
+export default withRouter(connect(null,mapDispatchToProps)(Shopping));  
